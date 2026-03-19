@@ -52,5 +52,6 @@ public class TextBoxTests extends TestBase {
 
         $("[id=output] [id=name]").shouldHave(text(userName));
         $("[id=output] [id=email]").shouldHave(text(userEmail));
-
+    }
 }
+
