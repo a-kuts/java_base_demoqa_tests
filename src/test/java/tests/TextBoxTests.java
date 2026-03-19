@@ -13,17 +13,23 @@ public class TextBoxTests extends TestBase {
 
     @Test
     void successfulFillFormTest() {
+        String userName = "ivan ivanov";
+        String userEmail = "ivan@ivanov.com";
+        String currentAddress = "true address";
+        String permanentAddress = "very true address";
+
+
         open("/text-box");
-        $("[id=userName]").setValue("ivan ivanov");
-        $("[id=userEmail]").setValue("ivan@ivanov.com");
-        $("[id=currentAddress]").setValue("true address");
-        $("[id=permanentAddress]").setValue("very true address");
+        $("[id=userName]").setValue(userName);
+        $("[id=userEmail]").setValue(userEmail);
+        $("[id=currentAddress]").setValue(currentAddress);
+        $("[id=permanentAddress]").setValue(permanentAddress);
         $("[id=submit]").click();
 
-        $("[id=output] [id=name]").shouldHave(text("ivan ivanov"));
-        $("[id=output] [id=email]").shouldHave(text("ivan@ivanov.com"));
-        $("[id=output] [id=currentAddress]").shouldHave(text("true address"));
-        $("[id=output] [id=permanentAddress]").shouldHave(text("very true address"));
+        $("[id=output] [id=name]").shouldHave(text(userName));
+        $("[id=output] [id=email]").shouldHave(text(userEmail));
+        $("[id=output] [id=currentAddress]").shouldHave(text(currentAddress));
+        $("[id=output] [id=permanentAddress]").shouldHave(text(permanentAddress));
     }
 
 }
