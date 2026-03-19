@@ -11,12 +11,17 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class TextBoxTests extends TestBase {
 
+    String userName = "ivan ivanov";
+    String userEmail = "ivan@ivanov.com";
+    String currentAddress = "true address";
+    String permanentAddress = "very true address";
+
     @Test
     void successfulFillFormTest() {
-        String userName = "ivan ivanov";
-        String userEmail = "ivan@ivanov.com";
-        String currentAddress = "true address";
-        String permanentAddress = "very true address";
+//        String userName = "ivan ivanov";
+//        String userEmail = "ivan@ivanov.com";
+//        String currentAddress = "true address";
+//        String permanentAddress = "very true address";
 
 
         open("/text-box");
@@ -31,5 +36,21 @@ public class TextBoxTests extends TestBase {
         $("[id=output] [id=currentAddress]").shouldHave(text(currentAddress));
         $("[id=output] [id=permanentAddress]").shouldHave(text(permanentAddress));
     }
+
+    @Test
+    void successfulFillFormWithoutAddressTest() {
+//        String userName = "ivan ivanov";
+//        String userEmail = "ivan@ivanov.com";
+//        String currentAddress = "true address";
+//        String permanentAddress = "very true address";
+
+
+        open("/text-box");
+        $("[id=userName]").setValue(userName);
+        $("[id=userEmail]").setValue(userEmail);
+        $("[id=submit]").click();
+
+        $("[id=output] [id=name]").shouldHave(text(userName));
+        $("[id=output] [id=email]").shouldHave(text(userEmail));
 
 }
